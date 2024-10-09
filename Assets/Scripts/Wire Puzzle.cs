@@ -14,14 +14,22 @@ public class WirePuzzle : MonoBehaviour
     private bool solved = false;
     private WireTile tileScript;
 
-    public GameObject testIndicator; 
+    public GameObject leftView;
+    public GameObject rightView;
+    public GameObject testIndicatorL;
+    public GameObject testIndicatorR;
+
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         for (int r = 0; r < 4; r++) {
             for (int c = 0; c < 4; c++) {
-                tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f, 1.5f-r, 0), transform.rotation, this.transform);
+                if ((r+c) % 2 == 0) {
+                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f-4.5f, 1.5f-r, 0), transform.rotation, leftView.transform);
+                }
+                else {
+                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f+4.5f, 1.5f-r, 0), transform.rotation, rightView.transform);
+                }
             }
         }
 
@@ -101,7 +109,8 @@ public class WirePuzzle : MonoBehaviour
             solved = solved && tiles[i].transform.rotation.z == 0;
         }
 
-        testIndicator.SetActive(solved);
+        testIndicatorL.SetActive(solved);
+        testIndicatorR.SetActive(solved);
     }
 
     /*
