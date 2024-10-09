@@ -11,25 +11,45 @@ public class WireTile : MonoBehaviour
     public bool downWire;
     public GameObject wirePrefab;
 
-    private GameObject[] wireArray = new GameObject[4];
+    private bool[] wireArray = new bool[4];
+    private bool[] wireArrayOrient = new bool[4];
 
 
     // Start is called before the first frame update
     void Start()
     {
         float relWireShift = 0.5f - (wirePrefab.transform.localScale.x)/2;
+        wireArray[0] = rightWire;
+        wireArray[1] = upWire;
+        wireArray[2] = leftWire;
+        wireArray[3] = downWire;
+
+        wireArrayOrient[0] = rightWire;
+        wireArrayOrient[1] = upWire;
+        wireArrayOrient[2] = leftWire;
+        wireArrayOrient[3] = downWire;
+
+        //Debug.Log("Starting orient: " + wireArrayOrient[0] + ", " + wireArrayOrient[1] + ", " + wireArrayOrient[2] + ", " + wireArrayOrient[3]);
+
+        /*
+        for (int i = 0; i < 4; i++) {
+            if (wireArray[i]) {
+                Instantiate(wirePrefab, transform.position + new Vector3(relWireShift*this.transform.localScale.x, 0, 0), transform.rotation, this.transform);
+            }
+        }
+        */
 
         if (rightWire) {
-            wireArray[0] = Instantiate(wirePrefab, transform.position + new Vector3(relWireShift*this.transform.localScale.x, 0, 0), transform.rotation, this.transform);
+            Instantiate(wirePrefab, transform.position + new Vector3(relWireShift*this.transform.localScale.x, 0, -1), transform.rotation, this.transform);
         }
         if (upWire) {
-            wireArray[1] = Instantiate(wirePrefab, transform.position + new Vector3(0, relWireShift*this.transform.localScale.y, 0), transform.rotation * Quaternion.Euler(0, 0, 90), this.transform);
+            Instantiate(wirePrefab, transform.position + new Vector3(0, relWireShift*this.transform.localScale.y, -1), transform.rotation * Quaternion.Euler(0, 0, 90), this.transform);
         }
         if (leftWire) {
-            wireArray[2] = Instantiate(wirePrefab, transform.position + new Vector3(-relWireShift*this.transform.localScale.x, 0, 0), transform.rotation * Quaternion.Euler(0, 0, 180), this.transform);
+            Instantiate(wirePrefab, transform.position + new Vector3(-relWireShift*this.transform.localScale.x, 0, -1), transform.rotation * Quaternion.Euler(0, 0, 180), this.transform);
         }
         if (downWire) {
-            wireArray[3] = Instantiate(wirePrefab, transform.position + new Vector3(0, -relWireShift*this.transform.localScale.y, 0), transform.rotation * Quaternion.Euler(0, 0, 270), this.transform);
+            Instantiate(wirePrefab, transform.position + new Vector3(0, -relWireShift*this.transform.localScale.y, -1), transform.rotation * Quaternion.Euler(0, 0, 270), this.transform);
         }
     }
 
@@ -43,5 +63,16 @@ public class WireTile : MonoBehaviour
     void OnMouseDown()
     {
         transform.Rotate(0, 0, 90);
+        bool[] temp = {wireArrayOrient[0], wireArrayOrient[1], wireArrayOrient[2], wireArrayOrient[3]};
+        for (int i = 1; i < 4; i++) {
+            wireArrayOrient[i] = temp[i-1];
+        }
+        wireArrayOrient[0] = temp[3];
+        
+        //Debug.Log("New orient:" + wireArrayOrient[0] + ", " + wireArrayOrient[1] + ", " + wireArrayOrient[2] + ", " + wireArrayOrient[3]);
+
+        if (wireArrayOrient[0] == wireArray[0] && wireArrayOrient[1] == wireArray[1] && wireArrayOrient[2] == wireArray[2] && wireArrayOrient[3] == wireArray[3]) {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
