@@ -1,64 +1,72 @@
 using UnityEngine;
 
 public class AnalogScale : MonoBehaviour
-{
+{   
+    public GameObject scaleBalance;
     public DigitalScale digitalScale;
     public ScaleObject[] allScaleObjectsOnScale;
-    public GameObject leftScale;
-    public GameObject rightScale;
+    public GameObject leftPlatform;
+    public GameObject rightPlatform;
     public GameObject smileyA;
     public GameObject smileyB;
 
-    private int leftWeight = 0;
-    private int rightWeight = 0;
-    private float leftHeight = 0;
-    private float rightHeight = 0;
-
+    const float R = 1.9f;
     const float SCALE = 25;
-    const float OFFSET = (float)-0.45;
-    const float SCALE_OBJECTS_OFFSET = (float)-0.65;
+    const float ORIGIN_OFFSET_X = 1.86f;
+    const float ORIGIN_OFFSET_Y = -0.4f;
+    const float SCALE_OBJECTS_ORIGIN_OFFSET_X = -0.68f;
+    const float SCALE_OBJECTS_ORIGIN_OFFSET_Y = -0.68f;
+    const float SCALE_OBJECTS_INDIVIDUAL_OFFSET_X = 0.47f;
 
     void Update()
     {
         // calculate left weight
-        leftWeight = digitalScale.GetWeight();
+        int leftWeight = digitalScale.GetWeight();
 
         // calculate right weight
-        int newRightWeight = 0;
+        int rightWeight = 0;
         foreach (ScaleObject scaleObject in allScaleObjectsOnScale)
         {
             if (scaleObject.gameObject.activeSelf)
             {
-                newRightWeight += scaleObject.weight;
+                rightWeight += scaleObject.weight;
             }
         }
 
-        rightWeight = newRightWeight;
-
-        // calculate heights of scales and objects on right scale
-        if (leftWeight > rightWeight)
+        // calculate left and right platform heights
+        float theta = leftWeight - rightWeight;
+        // exaggerate 0-4 degrees differences to spread between 3-4 degrees
+        if (-4 <= theta && theta <= 4 && theta != 0)
         {
-            leftHeight = -(leftWeight - rightWeight) / SCALE + OFFSET;
-            rightHeight = (leftWeight - rightWeight) / SCALE + OFFSET;
+            theta = theta / 4 + Mathf.Sign(theta) * 3;
         }
-        else
-        {
-            leftHeight = (rightWeight - leftWeight) / SCALE + OFFSET;
-            rightHeight = -(rightWeight - leftWeight) / SCALE + OFFSET;
-        }
+        float radian = theta * Mathf.Deg2Rad;
+        float x = R * Mathf.Cos(radian);
+        float y = R * Mathf.Sin(radian);
+        float leftX = -x + ORIGIN_OFFSET_X;
+        float leftY = -y + ORIGIN_OFFSET_Y;
+        float rightX = x + ORIGIN_OFFSET_X;
+        float rightY = y + ORIGIN_OFFSET_Y;
 
-        // set left and right scale heights
-        leftScale.transform.localPosition = new Vector3(leftScale.transform.localPosition.x, leftHeight, leftScale.transform.localPosition.z);
-        rightScale.transform.localPosition = new Vector3(rightScale.transform.localPosition.x, rightHeight, rightScale.transform.localPosition.z);
+        // set left and right platform heights
+        leftPlatform.transform.localPosition = new Vector3(leftX, leftY, leftPlatform.transform.localPosition.z);
+        rightPlatform.transform.localPosition = new Vector3(rightX, rightY, rightPlatform.transform.localPosition.z);
 
-        // set object heights on right scale
+        // set object heights on right platform
         foreach (ScaleObject scaleObject in allScaleObjectsOnScale)
         {
             if (scaleObject.gameObject.activeSelf)
             {
-                scaleObject.transform.localPosition = new Vector3(scaleObject.transform.localPosition.x, rightHeight + SCALE_OBJECTS_OFFSET, scaleObject.transform.localPosition.z);
+                scaleObject.transform.localPosition = new Vector3(
+                    rightX + SCALE_OBJECTS_ORIGIN_OFFSET_X + SCALE_OBJECTS_INDIVIDUAL_OFFSET_X * scaleObject.order,
+                    rightY + SCALE_OBJECTS_ORIGIN_OFFSET_Y,
+                    scaleObject.transform.localPosition.z
+                );
             }
         }
+
+        // set balance z rotation based on left and right platform positions
+        scaleBalance.transform.rotation = Quaternion.Euler(0, 0, theta);
 
         // active or deactivate smiley
         if (leftWeight == rightWeight && !smileyA.activeSelf)

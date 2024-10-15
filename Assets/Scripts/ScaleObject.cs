@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ScaleObject : MonoBehaviour
 {
+    public int order;
     public int weight;
     public ScaleObject objectToActivate;
     public ScaleObject objectToDeactivate;

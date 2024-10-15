@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 1073974457}
   objectToDeactivate: {fileID: 96637610}
@@ -1293,6 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 1120561511}
   objectToDeactivate: {fileID: 274118744}
@@ -2695,7 +2697,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 1427024318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &547247889
 BoxCollider2D:
@@ -2729,7 +2731,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: -0.18}
+  m_Offset: {x: -0.06, y: 0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2740,7 +2742,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &547247890
 MonoBehaviour:
@@ -2754,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 670611667}
   objectToDeactivate: {fileID: 547247890}
@@ -3221,6 +3224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 3
   weight: 3
   objectToActivate: {fileID: 547247890}
   objectToDeactivate: {fileID: 670611667}
@@ -3256,7 +3260,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: -0.18}
+  m_Offset: {x: -0.06, y: 0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3267,7 +3271,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!212 &670611669
 SpriteRenderer:
@@ -3330,11 +3334,11 @@ Transform:
   m_GameObject: {fileID: 670611666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.74, y: -1.3, z: -4}
+  m_LocalPosition: {x: 4.41, y: -1.3, z: -4}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 704107896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &704107895
 GameObject:
@@ -3370,6 +3374,10 @@ Transform:
   - {fileID: 428561408}
   - {fileID: 387969897}
   - {fileID: 1231551134}
+  - {fileID: 995271418}
+  - {fileID: 957134488}
+  - {fileID: 901910216}
+  - {fileID: 670611670}
   m_Father: {fileID: 956284930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &704107897
@@ -3384,14 +3392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6d06d40bf3143a09416309e732814e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBalance: {fileID: 428561407}
   digitalScale: {fileID: 1388446026}
   allScaleObjectsOnScale:
   - {fileID: 995271420}
   - {fileID: 670611667}
   - {fileID: 957134485}
   - {fileID: 901910218}
-  leftScale: {fileID: 387969896}
-  rightScale: {fileID: 1231551133}
+  leftPlatform: {fileID: 387969896}
+  rightPlatform: {fileID: 1231551133}
   smileyA: {fileID: 2124827291}
   smileyB: {fileID: 1652062672}
 --- !u!1 &706736342
@@ -4019,6 +4028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 1
   objectToActivate: {fileID: 2087521825}
   objectToDeactivate: {fileID: 899563780}
@@ -4095,11 +4105,11 @@ Transform:
   m_GameObject: {fileID: 901910215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.31, y: -1.3, z: -4}
+  m_LocalPosition: {x: 3.98, y: -1.3, z: -4}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 704107896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &901910217
 BoxCollider2D:
@@ -4144,7 +4154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &901910218
 MonoBehaviour:
@@ -4158,6 +4168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 2
   weight: 1
   objectToActivate: {fileID: 1764144894}
   objectToDeactivate: {fileID: 901910218}
@@ -4382,14 +4393,7 @@ Transform:
   - {fileID: 1100740499}
   - {fileID: 2124827293}
   - {fileID: 704107896}
-  - {fileID: 1764144897}
-  - {fileID: 1494131565}
-  - {fileID: 995271418}
-  - {fileID: 670611670}
-  - {fileID: 957134488}
-  - {fileID: 901910216}
-  - {fileID: 547247888}
-  - {fileID: 1316719201}
+  - {fileID: 1427024318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957134484
@@ -4423,6 +4427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 1
   weight: 27
   objectToActivate: {fileID: 1316719203}
   objectToDeactivate: {fileID: 957134485}
@@ -4532,11 +4537,11 @@ Transform:
   m_GameObject: {fileID: 957134484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.87, y: -1.3, z: -5}
+  m_LocalPosition: {x: 3.54, y: -1.3, z: -5}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 704107896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995271417
 GameObject:
@@ -4566,11 +4571,11 @@ Transform:
   m_GameObject: {fileID: 995271417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.43, y: -1.3, z: -5}
+  m_LocalPosition: {x: 3.1, y: -1.3, z: -5}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 704107896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &995271419
 BoxCollider2D:
@@ -4629,6 +4634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 9
   objectToActivate: {fileID: 1494131562}
   objectToDeactivate: {fileID: 995271420}
@@ -5056,6 +5062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 27
   objectToActivate: {fileID: 96637610}
   objectToDeactivate: {fileID: 1073974457}
@@ -5576,6 +5583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 3
   objectToActivate: {fileID: 274118744}
   objectToDeactivate: {fileID: 1120561511}
@@ -5928,6 +5936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 16
   objectToActivate: {fileID: 0}
   objectToDeactivate: {fileID: 0}
@@ -6720,7 +6729,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 1427024318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1316719202
 BoxCollider2D:
@@ -6779,6 +6788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 957134485}
   objectToDeactivate: {fileID: 1316719203}
@@ -7270,6 +7280,41 @@ Transform:
   - {fileID: 495587971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1427024317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427024318}
+  m_Layer: 0
+  m_Name: TableTopShapes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1427024318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427024317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1764144897}
+  - {fileID: 1494131565}
+  - {fileID: 547247888}
+  - {fileID: 1316719201}
+  m_Father: {fileID: 956284930}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494131561
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,6 +7346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 995271420}
   objectToDeactivate: {fileID: 1494131562}
@@ -7414,7 +7460,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 1427024318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1557616224
 GameObject:
@@ -8246,6 +8292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 901910218}
   objectToDeactivate: {fileID: 1764144894}
@@ -8292,7 +8339,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.2}
   m_EdgeRadius: 0
 --- !u!212 &1764144896
 SpriteRenderer:
@@ -8359,7 +8406,7 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956284930}
+  m_Father: {fileID: 1427024318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769502444
 GameObject:
@@ -8777,6 +8824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 9
   objectToActivate: {fileID: 1988503204}
   objectToDeactivate: {fileID: 1831090468}
@@ -9282,6 +9330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 1831090468}
   objectToDeactivate: {fileID: 1988503204}
@@ -9776,6 +9825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d63210352d6b84982c2a5fdbacd935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   weight: 0
   objectToActivate: {fileID: 899563780}
   objectToDeactivate: {fileID: 2087521825}
@@ -9919,6 +9969,6 @@ SceneRoots:
   - {fileID: 513442153}
   - {fileID: 359944777}
   - {fileID: 402058676}
-  - {fileID: 956284930}
   - {fileID: 95692058}
   - {fileID: 1415654921}
+  - {fileID: 956284930}
