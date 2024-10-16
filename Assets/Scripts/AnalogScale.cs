@@ -4,11 +4,11 @@ public class AnalogScale : MonoBehaviour
 {   
     public GameObject scaleBalance;
     public DigitalScale digitalScale;
-    public ScaleObject[] allScaleObjectsOnScale;
+    public ScaleObject[] blocksOnScale;
     public GameObject leftPlatform;
     public GameObject rightPlatform;
-    public GameObject smileyA;
-    public GameObject smileyB;
+    public GameObject checkA;
+    public GameObject checkB;
 
     const float R = 1.9f;
     const float SCALE = 25;
@@ -25,7 +25,7 @@ public class AnalogScale : MonoBehaviour
 
         // calculate right weight
         int rightWeight = 0;
-        foreach (ScaleObject scaleObject in allScaleObjectsOnScale)
+        foreach (ScaleObject scaleObject in blocksOnScale)
         {
             if (scaleObject.gameObject.activeSelf)
             {
@@ -53,7 +53,7 @@ public class AnalogScale : MonoBehaviour
         rightPlatform.transform.localPosition = new Vector3(rightX, rightY, rightPlatform.transform.localPosition.z);
 
         // set object heights on right platform
-        foreach (ScaleObject scaleObject in allScaleObjectsOnScale)
+        foreach (ScaleObject scaleObject in blocksOnScale)
         {
             if (scaleObject.gameObject.activeSelf)
             {
@@ -69,15 +69,15 @@ public class AnalogScale : MonoBehaviour
         scaleBalance.transform.rotation = Quaternion.Euler(0, 0, theta);
 
         // active or deactivate smiley
-        if (leftWeight == rightWeight && !smileyA.activeSelf)
+        if (leftWeight == rightWeight && !checkA.activeSelf)
         {
-            smileyA.SetActive(true);
-            smileyB.SetActive(true);
+            checkA.SetActive(true);
+            checkB.SetActive(true);
         }
-        else if (leftWeight != rightWeight && smileyA.activeSelf)
+        else if (leftWeight != rightWeight && checkA.activeSelf)
         {
-            smileyA.SetActive(false);
-            smileyB.SetActive(false);
+            checkA.SetActive(false);
+            checkB.SetActive(false);
         }
     }
 }

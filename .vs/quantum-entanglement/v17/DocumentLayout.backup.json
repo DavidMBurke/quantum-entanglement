@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\Assets\\Scripts\\ScaleObject.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ScaleObject.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\Assets\\Scripts\\Arrow.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Arrow.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ScaleObject.cs",
+              "DocumentMoniker": "D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\Assets\\Scripts\\ScaleObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScaleObject.cs",
+              "ToolTip": "D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\Assets\\Scripts\\ScaleObject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScaleObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T22:34:23.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Arrow.cs",
               "DocumentMoniker": "D:\\Users\\Brian Zheng\\Documents\\Unity\\quantum-entanglement\\Assets\\Scripts\\Arrow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Arrow.cs",
