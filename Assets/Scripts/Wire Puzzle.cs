@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WirePuzzle : MonoBehaviour
 {
@@ -22,13 +23,22 @@ public class WirePuzzle : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        System.Random rnd = new System.Random();
+        int randAngle;
         for (int r = 0; r < 4; r++) {
             for (int c = 0; c < 4; c++) {
-                if ((r+c) % 2 == 0) {
-                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f-4.5f, 1.5f-r, 0), transform.rotation, leftView.transform);
+                if ((r+c) % 3 == 0) {
+                    randAngle = rnd.Next(2)*180 + 90;
                 }
                 else {
-                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f+4.5f, 1.5f-r, 0), transform.rotation, rightView.transform);
+                    randAngle = rnd.Next(4)*90;
+                }
+
+                if ((r+c) % 2 == 0) {
+                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f-4.5f, 1.5f-r, 0), transform.rotation * Quaternion.Euler(0, 0, randAngle), leftView.transform);
+                }
+                else {
+                    tiles[4*r+c] = Instantiate(tilePrefab, transform.position + new Vector3(c-1.5f+4.5f, 1.5f-r, 0), transform.rotation * Quaternion.Euler(0, 0, randAngle), rightView.transform);
                 }
             }
         }
@@ -104,20 +114,12 @@ public class WirePuzzle : MonoBehaviour
     {
         // This checks if the puzzle is solved every frame
         // (We should find a way to only check when the puzzle is clicked on.)
-        solved = tiles[0].transform.rotation.z == 0;
+        solved = tiles[0].transform.rotation.eulerAngles.z < 1;
         for (int i = 1; i < tiles.Length; i++) {
-            solved = solved && tiles[i].transform.rotation.z == 0;
+            solved = solved && tiles[i].transform.rotation.eulerAngles.z < 1;
         }
 
         testIndicatorL.SetActive(solved);
         testIndicatorR.SetActive(solved);
     }
-
-    /*
-    // OnMouseDown is called when the puzzle is clicked
-    void OnMouseDown()
-    {
-        Debug.Log("Sup!");
-    }
-    */
 }
