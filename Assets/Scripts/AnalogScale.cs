@@ -9,6 +9,10 @@ public class AnalogScale : MonoBehaviour
     public GameObject rightPlatform;
     public GameObject checkA;
     public GameObject checkB;
+    public GameObject lockedWireBoxA;
+    public GameObject lockedWireBoxB;
+    public GameObject unlockedWireBoxA;
+    public GameObject unlockedWireBoxB;
 
     const float R = 1.9f;
     const float SCALE = 25;
@@ -73,6 +77,10 @@ public class AnalogScale : MonoBehaviour
         {
             checkA.SetActive(true);
             checkB.SetActive(true);
+            unlockedWireBoxA.SetActive(true);
+            unlockedWireBoxB.SetActive(true);
+            lockedWireBoxA.SetActive(false);
+            lockedWireBoxB.SetActive(false);
         }
         else if (leftWeight != rightWeight && checkA.activeSelf)
         {
