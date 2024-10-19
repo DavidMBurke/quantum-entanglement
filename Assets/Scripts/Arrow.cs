@@ -5,6 +5,7 @@ public class ArrowClickHandler : MonoBehaviour
 
     public GameObject objectToActivate;
     public GameObject objectToDeactivate;
+    public GameObject secondaryObjectToActivate;
 
     private void OnMouseDown()
     {
@@ -16,6 +17,11 @@ public class ArrowClickHandler : MonoBehaviour
         if (objectToDeactivate != null)
         {
             objectToDeactivate.SetActive(false);
+        }
+
+        if (secondaryObjectToActivate != null)
+        {
+            secondaryObjectToActivate.SetActive(true);
         }
     }
 }
