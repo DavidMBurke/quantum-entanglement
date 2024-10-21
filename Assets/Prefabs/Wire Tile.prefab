@@ -98,11 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb468e966283d74694e7964067a18a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightWire: 0
-  upWire: 0
-  leftWire: 0
-  downWire: 0
+  rightWires: 000000
+  upWires: 000000
+  leftWires: 000000
+  downWires: 000000
   wirePrefab: {fileID: 6092849838358496137, guid: d8a786ea628e1364b84c63f5a4cd32ee, type: 3}
+  wirePrefab1: {fileID: 0}
+  wirePrefab2: {fileID: 0}
+  wireThickness: 0.05
 --- !u!61 &4293212332470479098
 BoxCollider2D:
   m_ObjectHideFlags: 0
