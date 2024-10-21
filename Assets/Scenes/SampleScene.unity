@@ -628,6 +628,7 @@ MonoBehaviour:
   testIndicatorR: {fileID: 1143197977}
   numberToActivate1: {fileID: 1408830788}
   numberToActivate2: {fileID: 1655582414}
+  finishAudio: {fileID: 541030930}
 --- !u!4 &95692058
 Transform:
   m_ObjectHideFlags: 0
