@@ -21,6 +21,7 @@ public class WirePuzzle : MonoBehaviour
     public GameObject testIndicatorR;
     public GameObject numberToActivate1;
     public GameObject numberToActivate2;
+    public AudioSource finishAudio;
 
     // Start is called before the first frame update
     void Start() {
@@ -115,17 +116,19 @@ public class WirePuzzle : MonoBehaviour
     {
         // This checks if the puzzle is solved every frame
         // (We should find a way to only check when the puzzle is clicked on.)
-        solved = tiles[0].transform.rotation.eulerAngles.z < 1;
+        bool currSolved = tiles[0].transform.rotation.eulerAngles.z < 1;
         for (int i = 1; i < tiles.Length; i++) {
-            solved = solved && tiles[i].transform.rotation.eulerAngles.z < 1;
+            currSolved = currSolved && tiles[i].transform.rotation.eulerAngles.z < 1;
         }
 
-        testIndicatorL.SetActive(solved);
-        testIndicatorR.SetActive(solved);
-        if (solved)
+        testIndicatorL.SetActive(currSolved);
+        testIndicatorR.SetActive(currSolved);
+        if (!solved && currSolved)
         {
             numberToActivate1.SetActive(true);
             numberToActivate2.SetActive(true);
+            finishAudio.Play();
         }
+        solved = currSolved;
     }
 }

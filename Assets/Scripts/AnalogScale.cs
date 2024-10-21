@@ -13,6 +13,7 @@ public class AnalogScale : MonoBehaviour
     public GameObject lockedWireBoxB;
     public GameObject unlockedWireBoxA;
     public GameObject unlockedWireBoxB;
+    public AudioSource finishAudio;
 
     const float R = 1.9f;
     const float SCALE = 25;
@@ -72,7 +73,7 @@ public class AnalogScale : MonoBehaviour
         // set balance z rotation based on left and right platform positions
         scaleBalance.transform.rotation = Quaternion.Euler(0, 0, theta);
 
-        // active or deactivate smiley
+        // finish
         if (leftWeight == rightWeight && !checkA.activeSelf)
         {
             checkA.SetActive(true);
@@ -81,7 +82,9 @@ public class AnalogScale : MonoBehaviour
             unlockedWireBoxB.SetActive(true);
             lockedWireBoxA.SetActive(false);
             lockedWireBoxB.SetActive(false);
+            finishAudio.Play();
         }
+        // change from finish
         else if (leftWeight != rightWeight && checkA.activeSelf)
         {
             checkA.SetActive(false);
