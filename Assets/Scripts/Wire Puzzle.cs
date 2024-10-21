@@ -19,7 +19,8 @@ public class WirePuzzle : MonoBehaviour
     public GameObject rightView;
     public GameObject testIndicatorL;
     public GameObject testIndicatorR;
-
+    public GameObject numberToActivate1;
+    public GameObject numberToActivate2;
 
     // Start is called before the first frame update
     void Start() {
@@ -121,5 +122,10 @@ public class WirePuzzle : MonoBehaviour
 
         testIndicatorL.SetActive(solved);
         testIndicatorR.SetActive(solved);
+        if (solved)
+        {
+            numberToActivate1.SetActive(true);
+            numberToActivate2.SetActive(true);
+        }
     }
 }
