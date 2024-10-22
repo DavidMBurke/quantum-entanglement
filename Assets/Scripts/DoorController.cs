@@ -9,6 +9,7 @@ public class DoorController : MonoBehaviour
 
     [SerializeField] private bool isOpen = false;
     public SpriteRenderer spriteRenderer;
+    public endscreen endscreen;
 
     public bool IsOpen
     {
@@ -16,6 +17,7 @@ public class DoorController : MonoBehaviour
         set
         {
             isOpen = value;
+            endscreen.checkOpen();
             UpdateSprite();
         }
     }
